@@ -1,0 +1,121 @@
+/* (A) WHOLE PAGE */
+@font-face{font-family:"Material Icons";src:url(maticon.woff2) format("woff2")}
+.mi{font-family:"Material Icons";font-weight:400;font-style:normal;text-decoration:none;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:"liga";-webkit-font-smoothing:antialiased}
+* {
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background: #e0e0e0;
+
+}
+
+/* (B) SHARED */
+button, input[type=button], input[type=submit], #formAdd, #formClose {
+  border: 1px solid #fff;
+  color: #fff;
+  background: #780000;
+  cursor: pointer;
+  border-radius: 50%;
+}
+input, button { padding: 10px; }
+input.mi, #formAdd, #formClose { padding: 15px; }
+#libFormWrap, #libListHead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* (C) ADD/EDIT MEDIA */
+/* (C1) FULL PAGE WRAPPER WRAPPER */
+#libFormWrap {
+  position: fixed;
+  top: 0; left: 0; z-index: 999;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s;
+
+
+}
+#libFormWrap.show {
+  opacity: 1; visibility: visible;
+}
+
+/* (C2) ADD/EDIT FORM */
+#libForm {
+  position: relative;
+  width: 350px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: #f2f2f2;
+}
+#formClose {
+  position: absolute;
+  top: 0; right: 0;
+  font-weight: 700;
+}
+#libForm, #libForm input { border-radius: 10px; }
+#libForm label, #libForm input {
+  display: block;
+  width: 100%;
+}
+#libForm label { margin: 10px 0; }
+#libForm input { border: 1px solid #ccc; }
+#libForm input[type=submit] { margin-top: 20px; }
+
+/* (D) MEDIA LIST */
+/* (D1) LIST WRAPPER */
+#libListWrap {
+  max-width: 100%;
+  height: 90px;
+  padding: 10px;
+  font-size: 0.8rem;
+  margin: 0 auto;
+  background: #e0e0e0;
+box-shadow:  5px 5px 10px #bebebe,
+             -5px -5px 10px #ffffff;
+}
+
+/* (D2) LIST HEADER */
+#libListHead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#libListHead h1 { flex-grow: 1;
+  margin-left: 30px; }
+
+/* (D3) LIST ITEMS */
+#libList .row {
+  display: flex;
+  padding: 10px;
+  width: 90%;
+  margin-left: 5%;
+  line-height: 30px;
+  border: 1px solid #eee;
+  background: #e0e0e0;
+  box-shadow:  5px 5px 10px #bebebe,
+               -5px -5px 10px #ffffff;
+  margin-top: 40px;
+}
+#libList .bdel {
+  height: 40px;
+  width: 40px;
+  border: 0;
+  color: #fff;
+  background: #780000;
+}
+#libList .binfo {
+  flex-grow: 1;
+}
+
+.bh{
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

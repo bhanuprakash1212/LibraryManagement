@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- TITLE + CHARSET + DESCRIPTION + VIEWPORT + FAVICON -->
+    <title>Library Management System</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Library Management">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <!-- ANDROID + CHROME + APPLE + WINDOWS APP -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="white">
+    <link rel="apple-touch-icon" href="icon-512.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Lib Manager">
+    <meta name="msapplication-TileImage" content="icon-512.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+
+    <!-- WEB APP MANIFEST -->
+    <!-- https://web.dev/add-manifest/ -->
+    <link rel="manifest" href="3-manifest.json">
+
+    <!-- SERVICE WORKER -->
+    <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("4-worker.js");
+    }
+    </script>
+
+    <!-- STYLESHEET + JAVASCRIPT -->
+    <link rel="stylesheet" href="2-js-lib.css"/>
+    <script defer src="2-js-lib.js"></script>
+  </head>
+  <body>
+    <!-- (A) ADD/EDIT MEDIA -->
+    <div id="libFormWrap"><form id="libForm" onsubmit="return lib.add()">
+      <div id="formClose" class="mi bh" onclick="lib.toggle(false)">
+        close
+      </div>
+      <input type="hidden" id="formID"/>
+      <label>Student Pin number</label>
+      <input type="text" id="formCode" required/>
+      <label>Title</label>
+      <input type="text" id="formTitle" required/>
+      <label>Author</label>
+      <input type="text" id="formAuthor" required/>
+      <label>Location</label>
+      <input type="text" id="formLoc" required/>
+      <input type="submit" value="Save"/>
+    </form></div>
+
+    <!-- (B) MEDIA LIST -->
+    <div id="libListWrap">
+      <div id="libListHead">
+        <h1>Books issued list</h1>
+        <div id="formAdd" class="mi" onclick="lib.toggle(true)">
+          add
+        </div>
+      </div>
+      <div id="libList"></div>
+    </div>
+  </body>
+</html>
